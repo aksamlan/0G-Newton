@@ -3,10 +3,9 @@
 
 
 ### Linkler
- * [Hercules Telegram](https://t.me/HerculesNode)
- * [Hercules Twitter](https://twitter.com/Herculesnode)
+ * [Hercules Twitter](https://twitter.com/huseyinntr)
  * [OG Discord](https://discord.gg/0glabs)
- * [ScannerX Explorer](https://explorer.scannerx.net/0G-Testnet/staking)
+ * [Explorer](https://explorer.herculesnode.com/0G-Testnet/staking)
 
 
 ## 🟢 rol alma
@@ -42,9 +41,9 @@ source $HOME/.bash_profile && \
 go version
 ```
 
-## 🟢 Dosyaları indirin
+## 🟢 Dosyaları indirin v0.2.3
 ```shell
-git clone -b v0.1.0 https://github.com/0glabs/0g-chain.git
+git clone -b v0.2.3 https://github.com/0glabs/0g-chain.git
 ./0g-chain/networks/testnet/install.sh
 source .profile
 ```
@@ -98,35 +97,35 @@ sudo systemctl enable 0gchaind.service
 ## 🟢 Node Ayarları
 
 ```shell
-0gchaind config chain-id zgtendermint_16600-1
+0gchaind config chain-id zgtendermint_16600-2
 0gchaind config keyring-backend os
 0gchaind config node tcp://localhost:16657
 ```
 
 ```shell
-0gchaind init NODE-ISMINI-YAZ --chain-id zgtendermint_16600-1
+0gchaind init NODE-ISMINI-YAZ --chain-id zgtendermint_16600-2
 ```
 
-## 🟢 Genesis
+## 🟢 Genesis dosyası 
 
 ```shell
 rm ~/.0gchain/config/genesis.json
-curl -Ls https://github.com/0glabs/0g-chain/releases/download/v0.1.0/genesis.json > $HOME/.0gchain/config/genesis.json
-curl -Ls https://raw.githubusercontent.com/Core-Node-Team/Testnet-TR/main/0G-Newton/addrbook.json > $HOME/.0gchain/config/addrbook.json
+wget -P ~/.0gchain/config https://github.com/0glabs/0g-chain/releases/download/v0.2.3/genesis.json
+
 ```
 
 ```shell
-rm ~/.0gchain/config/genesis.json
-wget -P ~/.0gchain/config https://github.com/0glabs/0g-chain/releases/download/v0.1.0/genesis.json
+0gchaind validate-genesis
 ```
 
-## 🟢 diğer Seed
+## 🟢 PEER VE SEED 
 
 ```shell
-PEERS="fbc3b6d41cd39a62ef5e3fc596435adfaf428a34@37.120.189.81:16656,645531eb02b275a59cc3b1af99e541852849f695@84.247.139.25:16656,d00273ac6a2470cd4e48008d9af4d2521b134394@62.169.29.136:26656,f5a7d34355f6d89b7ece583131c6b1f79ac5485e@218.102.97.67:25856,a3e6c6214805c1c068882f1981855c7a9f5926ea@213.168.249.202:26656,da1f4985ce3df05fd085460485adefa93592a54c@172.232.33.25:26656,91f079ccd2e0edf42e0fa57183ac92c22c525658@14.245.25.144:14256,9d09d391b2cf706a597d03fe8bb6700fe5cac53d@65.108.198.183:18456,5a202fb905f20f96d8ff0726f0c0756d17cf23d8@43.248.98.100:26656,74775d65b6ab427c685efcaa8190912d3a60e562@123.19.45.21:12656,f2693dd86766b5bf8fd6ab87e2e970d564d20aff@54.193.250.204:26656,9d7564df34efa146a94c073e5bf3f5e11f947b75@155.133.22.230:26656,e179d05dc792d9b902be3baa7a31a07a92afbcf0@118.142.83.5:26656,c4b9c3a7f3651af729d73b150e714ee91e7585c1@14.176.200.133:26656,f64f0fb500c62bffa33d60450d30792ee4b5fbd0@167.86.119.168:26656,d4085fd93ab77576f2acdb25d2d817061db5afe6@62.169.19.156:26656,2b8ee12f4f94ebc337af94dbec07de6f029a24e6@94.16.31.161:26656,0f5022e4265184052a5468379687625a81fd255e@154.12.253.116:26656,3859828e1099214de14dae91d1f7decf2374eeb4@47.236.170.254:26656,23b0a0624699f85062ddebf910583f70a5b9e86b@14.167.152.116:14256,b8f8ed478f2794629fdb5cf0c01edaed80f00f84@168.119.64.172:26656,5d81d59e81356a33e6ccccaa3d419ff73244697e@107.173.18.103:26656,c4d619f6088cb0b24b4ab43a0510bf9251ab5d7f@54.241.167.190:26656,a83f5d07a8a64827851c9f1d0c21c900b9309608@188.166.181.110:26656,19943cbe46cdb9eb37cb06c0067ce63154eee6ea@213.199.52.155:26656,a6ff8a651dd0a0e66dbfb2174ccadcbbcf567b29@66.94.122.224:26656,f3c912cf5653e51ee94aaad0589a3d176d31a19d@157.90.0.102:31656,141dbd90d5c3411c9ba72ba03704ccdb70875b01@65.109.147.58:36656,cd529839591e13f5ed69e9a029c5d7d96de170fe@46.4.55.46:34656,a8d7c5a051c4649ba7e267c94e48a7c64a00f0eb@65.108.127.146:26656" && \
-SEEDS="c4d619f6088cb0b24b4ab43a0510bf9251ab5d7f@54.241.167.190:26656,44d11d4ba92a01b520923f51632d2450984d5886@54.176.175.48:26656,f2693dd86766b5bf8fd6ab87e2e970d564d20aff@54.193.250.204:26656,f878d40c538c8c23653a5b70f615f8dccec6fb9f@54.215.187.94:26656" && \
+PEERS="cd529839591e13f5ed69e9a029c5d7d96de170fe@46.4.55.46:34656,28070a5cf6464c4f1a7716acdace3e7e57f39fd6@75.119.157.128:26646,baeceedd1ec1ba6ce1b6d19bb40f7b571026fb05@75.119.136.242:26646,b2ea93761696d4881e87f032a7f6158c6c25d92c@45.14.194.241:26646,d589ec553a75287d87635a8403f140f53b2f8432@85.239.232.29:13456,bf8f850598d3d52ee176296f07c10212e0d334ca@testnet-v2-0g-rpc.emberstake.xyz:34140,6122859577a3465ba67065f3b63194cae67ef4c4@110.171.123.186:36656" && \
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.0gchain/config/config.toml
 ```
+
+## 🟢 Prune
 
 ```shell
 
@@ -138,6 +137,8 @@ sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0ua0gi"|g' $HOME/.0gchain
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.0gchain/config/config.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.0gchain/config/config.toml
 ```
+
+## 🟢 Port Ayarları ( eğer başka bir proje çalışıyorsa kullanın )
 
 ```shell
 echo "export G_PORT="16"" >> $HOME/.bash_profile
@@ -163,7 +164,14 @@ s%^external_address = \"\"%external_address = \"$(wget -qO- eth0.me):${G_PORT}65
 s%:26660%:${G_PORT}660%g" $HOME/.0gchain/config/config.toml
 ```
 
-## 🟢 başlatın
+```shell
+sed -i \
+    -e 's/address = "127.0.0.1:8545"/address = "0.0.0.0:8545"/' \
+    -e 's|^api = ".*"|api = "eth,txpool,personal,net,debug,web3"|' \
+    $HOME/.0gchain/config/app.toml
+```
+
+## 🟢 Başlatalım
 
 ```shell
 sudo systemctl daemon-reload
@@ -211,6 +219,13 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show CÜZDAN-ADINI-YAZ -a) | grep 
 ![image](https://github.com/HerculesNode/0G-Newton/assets/101635385/1dba9cf6-65f6-44d6-aa97-501136d7a297)
 
 
+## 🟢 Faucet
+
+- Buradan faucet token alın. EVM adresi ile alacaksınız
+- https://faucet.0g.ai/
+
+
+
 ## 🟢 Validatör oluşturun ( Moniker yani görünen isminizi yazın ve cüzdan ismini yazın
 
 ```shell
@@ -218,23 +233,33 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show CÜZDAN-ADINI-YAZ -a) | grep 
   --amount=1000000ua0gi \
   --pubkey=$(0gchaind tendermint show-validator) \
   --moniker=MONİKER-YAZ \
-  --chain-id=zgtendermint_16600-1 \
-  --commission-rate=0.05 \
-  --commission-max-rate=0.10 \
-  --commission-max-change-rate=0.01 \
+  --chain-id=zgtendermint_16600-2 \
+  --commission-rate="0.10" \
+  --commission-max-rate="0.20" \
+  --commission-max-change-rate="0.01" \
   --min-self-delegation=1 \
   --from=CUZDAN-ADI-YAZ \
   --identity="" \
-  --website="https://explorer.scannerx.net" \
+  --website="https://herculesnode.com" \
   --details="HerculesNode community" \
-  --node=http://localhost:16657 \
+  --gas=auto \
+  --gas-adjustment=1.4 \
   -y
 ```
 
-## 🟢 Faucet
+## 🟢 validator check edelim
 
-- Buradan faucet token alın. EVM adresi ile alacaksınız
-- https://faucet.0g.ai/
+- Daha önce validator çalıştırdıysanız validatör oluşturma kodunu girdiğinizde eğer eski cüzdanı recovery yaptıysanız eski validator bilgileriniz gelecek. Şimdi /root/.0gchain/config/priv_validator_key.json dosyasını yedekleyin !!!
+
+- Eğer yeni kurduysanız yeni validatör adresi verecek yine bu dosyayı yedekleyin.
+
+- check etmek istiyorsanız bu adrese gidin ve validator adresini sonuna ekleyin ve açın 
+https://explorer.herculesnode.com/0G-Testnet/staking/VALIDATOR-ADRESINIZ
+
+- Daha sonra yedekledğiniz priv_validator_key.json dosyasını bir nor defteri ile açın explorer üzerinden bilgiler aynımı kontrol edin örnek resimdeki gibi açtığınız dosyadaki bilgiler ile explorer üzerindeki bilgiler aynı olmalı
+
+![image](https://github.com/HerculesNode/Testnet-Rehber/assets/101635385/41b269c6-cf8e-4362-8a09-ed9edd1fa1d4)
+
 
 ## 🟢 Delege işlemi
 
@@ -245,7 +270,7 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show CÜZDAN-ADINI-YAZ -a) | grep 
 ## 🟢 Unjail işlemi
 
 ```shell
-0gchaind tx slashing unjail --from CÜZDAN-ADINIZ --gas=500000 --gas-prices=99999neuron -y
+0gchaind tx slashing unjail --from CÜZDAN-ADINIZ --from CÜZDAN-İSMİ --gas=500000 --gas-prices=99999ua0gi -y
 ```
 
 ## 🟢 Aktif listeye bakma
